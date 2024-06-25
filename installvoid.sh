@@ -28,7 +28,7 @@ case "$installChoice" in
         sudo xbps-install -S xf86-video-vmware xf86-video-vesa mesa wayland wayland-protocols wayland-utils dbus avahi curl         
 
         echo "Installing utilities and system tools..."
-        sudo xbps-install -S sddm
+        sudo xbps-install -S lightdm
 
         echo "Installing fonts..."
         sudo xbps-install -S fontforge noto-fonts-emoji noto-fonts-cjk nerd-fonts-ttf nerd-fonts google-fonts-ttf
