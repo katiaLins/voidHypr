@@ -28,8 +28,11 @@ case "$installChoice" in
         sudo xbps-install -S xf86-video-vmware xf86-video-vesa mesa wayland wayland-protocols wayland-utils dbus avahi curl         
 
         echo "Installing utilities and system tools..."
-        sudo xbps-install -S gdm 
+        sudo xbps-install -S sddm
 
+        echo "Installing fonts..."
+        sudo xbps-install -S fontforge noto-fonts-emoji noto-fonts-cjk nerd-fonts-ttf nerd-fonts google-fonts-ttf
+ 
         echo "Installing utilities and system tools 2..."
         sudo sudo xbps-install -S hyprland hyprland-devel xdg-desktop-portal-hyprland
 
@@ -41,7 +44,7 @@ case "$installChoice" in
         sudo xbps-install -S fuse-exfat bash-completion linux-headers gtksourceview4 ffmpeg mesa-vdpau mesa-vaapi utoconf automake bison m4 make libtool flex meson ninja optipng sassc
         
         echo "Installig audio"
-        sudo xbps-install pulseaudio pulseaudio-utils pulsemixer alsa-plugins-pulseaudio bluez gnome-tweaks
+        sudo xbps-install pulseaudio pulseaudio-utils pulsemixer alsa-plugins-pulseaudio bluez 
 
         echo "Install LibreOffice:"
         sudo xbps-install libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-draw libreoffice-math libreoffice-base libreoffice-gnome libreoffice-i18n-pt-BR
@@ -56,7 +59,7 @@ case "$installChoice" in
         sudo reboot 
 
         echo "Starting services..."
-        sudo ln -s /etc/sv/gdm /var/service/
+        sudo ln -s /etc/sv/sddm /var/service/
         sudo ln -s /etc/sv/NetworkManager /var/service/
         sudo ln -sv /etc/sv/polkit-gnome /var/service
         sudo ln -s /etc/sv/dbus /var/service/
