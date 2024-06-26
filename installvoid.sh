@@ -25,21 +25,21 @@ case "$installChoice" in
         sudo xbps-install -Rs void-repo-nonfree    
 
         echo "Installing Video..."  
-        sudo xbps-install -S xf86-video-vmware xf86-video-vesa mesa wayland wayland-protocols wayland-utils dbus avahi curl         
+        sudo xbps-install -S xf86-video-vmware xf86-video-vesa mesa mesa-drive wayland wayland-protocols wayland-utils dbus avahi curl         
 
         echo "Installing utilities and system tools..."
-        sudo xbps-install -S lightdm
+        sudo xbps-install -S elogind
 
         echo "Installing fonts..."
         sudo xbps-install -S fontforge noto-fonts-emoji noto-fonts-cjk nerd-fonts-ttf nerd-fonts google-fonts-ttf
  
         echo "Installing utilities and system tools 2..."
-        sudo sudo xbps-install -S hyprland hyprland-devel xdg-desktop-portal-hyprland
+        sudo sudo xbps-install -S hyprland hyprland-devel xdg-desktop-portal-hyprland kitty
 
         xbps-query -Rs hypr
 
         echo "Installing additional applications..."
-        sudo xbps-install -S neofetch btop grub-customizer gvfs-mtp gvfs ntfs-3g mpv firefox wget git xz unzip zip nano vim gptfdisk xtools mtools mlocate  polkit-gnome
+        sudo xbps-install -S neofetch btop grub-customizer gvfs-mtp gvfs ntfs-3g mpv firefox wget git xz unzip zip nano vim gptfdisk xtools mtools mlocate  polkit seatd
 
         sudo xbps-install -S fuse-exfat bash-completion linux-headers gtksourceview4 ffmpeg mesa-vdpau mesa-vaapi utoconf automake bison m4 make libtool flex meson ninja optipng sassc
         
@@ -47,10 +47,10 @@ case "$installChoice" in
         sudo xbps-install pulseaudio pulseaudio-utils pulsemixer alsa-plugins-pulseaudio bluez 
 
         echo "Install LibreOffice:"
-        sudo xbps-install libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-draw libreoffice-math libreoffice-base libreoffice-gnome libreoffice-i18n-pt-BR
+        #sudo xbps-install libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-draw libreoffice-math libreoffice-base libreoffice-gnome libreoffice-i18n-pt-BR
 
         echo "Installing flatpak..."
-        sudo sudo xbps-install -S flatpak
+        #sudo sudo xbps-install -S flatpak
 
         echo "Installing network-manager..."
         sudo xbps-install NetworkManager network-manager-applet 
@@ -59,10 +59,11 @@ case "$installChoice" in
         sudo reboot 
 
         echo "Starting services..."
-        sudo ln -s /etc/sv/sddm /var/service/
+        sudo ln -s /etc/sv/seatd /var/service/
         sudo ln -s /etc/sv/NetworkManager /var/service/
-        sudo ln -sv /etc/sv/polkit-gnome /var/service
+        sudo ln -sv /etc/sv/polkitd /var/service
         sudo ln -s /etc/sv/dbus /var/service/
+        sudo usermod -aG _seatd ka
         
 
         	
