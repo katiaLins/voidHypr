@@ -1,0 +1,40 @@
+{
+    "label" : "lock",
+    "action" : "swaylock",
+    "text" : "Lock",
+    "keybind" : "l"
+}
+
+{
+    "label" : "logout",
+    "action" : "loginctl kill-session $XDG_SESSION_ID",
+    "text" : "Logout",
+    "keybind" : "e"
+}
+
+{
+    "label" : "shutdown",
+    "action" : "shutdown -h now",
+    "text" : "Shutdown",
+    "keybind" : "s"
+}
+
+{
+    "label" : "reboot",
+    "action" : "reboot",
+    "text" : "Reboot",
+    "keybind" : "r"
+}
+
+{
+    "label" : "suspend",
+    "action" : "systemctl suspend",
+    "text" : "Suspend",
+    "keybind" : "u"
+}
+{
+    "label" : "piece",
+    "action" : "systemctl reboot",
+    "text" : "piece",
+    "keybind" : "u"
+}
