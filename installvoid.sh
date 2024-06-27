@@ -25,45 +25,33 @@ case "$installChoice" in
         sudo xbps-install -Rs void-repo-nonfree    
 
         echo "Installing Video..."  
-        sudo xbps-install -S xf86-video-vmware xf86-video-vesa mesa mesa-drive wayland wayland-protocols wayland-utils dbus avahi curl         
+        sudo xbps-install -S xf86-video-vmware xf86-video-vesa mesa wayland wayland-protocols wayland-utils dbus avahi curl         
 
         echo "Installing utilities and system tools..."
-        sudo xbps-install -S gdm
-
-        echo "Installing fonts..."
-        #sudo xbps-install -S fontforge noto-fonts-emoji noto-fonts-cjk nerd-fonts-ttf nerd-fonts google-fonts-ttf
- 
-        echo "Installing utilities and system tools 2..."
-        sudo sudo xbps-install -S hyprland hyprland-devel xdg-desktop-portal-hyprland kitty
-
-        xbps-query -Rs hypr
+        sudo xbps-install -S gdm 
 
         echo "Installing additional applications..."
-        sudo xbps-install -S neofetch btop grub-customizer gvfs-mtp gvfs ntfs-3g mpv librewolf wget git xz unzip zip nano vim gptfdisk xtools mtools mlocate  polkit seatd
+        sudo xbps-install -S neofetch btop grub-customizer gvfs-mtp gvfs ntfs-3g mpv firefox wget git xz unzip zip nano vim gptfdisk xtools mtools mlocate fish kitty 
 
         sudo xbps-install -S fuse-exfat bash-completion linux-headers gtksourceview4 ffmpeg mesa-vdpau mesa-vaapi utoconf automake bison m4 make libtool flex meson ninja optipng sassc
         
         echo "Installig audio"
-        sudo xbps-install pulseaudio pulseaudio-utils pulsemixer alsa-plugins-pulseaudio bluez xfce4-terminal fish
+        sudo xbps-install pulseaudio pulseaudio-utils pulsemixer alsa-plugins-pulseaudio bluez gnome-tweaks
 
         echo "Install LibreOffice:"
-        #sudo xbps-install libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-draw libreoffice-math libreoffice-base libreoffice-gnome libreoffice-i18n-pt-BR
+        sudo xbps-install libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-draw libreoffice-math libreoffice-base libreoffice-gnome libreoffice-i18n-pt-BR
 
         echo "Installing flatpak..."
-        #sudo sudo xbps-install -S flatpak
+        sudo sudo xbps-install -S flatpak
 
-        echo "Installing network-manager..."
-        sudo xbps-install NetworkManager network-manager-applet 
-
-
-        sudo reboot 
+        echo "Installing Screenshot Utility..."
+        sudo xbps-install NetworkManager
 
         echo "Starting services..."
-        sudo ln -s /etc/sv/seatd /var/service/
+        sudo ln -s /etc/sv/gdm /var/service/
         sudo ln -s /etc/sv/NetworkManager /var/service/
-        sudo ln -sv /etc/sv/polkitd /var/service
+        sudo ln -sv /etc/sv/bluetoothd /var/service
         sudo ln -s /etc/sv/dbus /var/service/
-        sudo usermod -aG _seatd ka
         
 
         	
