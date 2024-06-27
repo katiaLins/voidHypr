@@ -31,7 +31,7 @@ case "$installChoice" in
         sudo xbps-install -S gdm
 
         echo "Installing fonts..."
-        sudo xbps-install -S fontforge noto-fonts-emoji noto-fonts-cjk nerd-fonts-ttf nerd-fonts google-fonts-ttf
+        #sudo xbps-install -S fontforge noto-fonts-emoji noto-fonts-cjk nerd-fonts-ttf nerd-fonts google-fonts-ttf
  
         echo "Installing utilities and system tools 2..."
         sudo sudo xbps-install -S hyprland hyprland-devel xdg-desktop-portal-hyprland kitty
@@ -39,12 +39,12 @@ case "$installChoice" in
         xbps-query -Rs hypr
 
         echo "Installing additional applications..."
-        sudo xbps-install -S neofetch btop grub-customizer gvfs-mtp gvfs ntfs-3g mpv firefox wget git xz unzip zip nano vim gptfdisk xtools mtools mlocate  polkit seatd
+        sudo xbps-install -S neofetch btop grub-customizer gvfs-mtp gvfs ntfs-3g mpv librewolf wget git xz unzip zip nano vim gptfdisk xtools mtools mlocate  polkit seatd
 
         sudo xbps-install -S fuse-exfat bash-completion linux-headers gtksourceview4 ffmpeg mesa-vdpau mesa-vaapi utoconf automake bison m4 make libtool flex meson ninja optipng sassc
         
         echo "Installig audio"
-        sudo xbps-install pulseaudio pulseaudio-utils pulsemixer alsa-plugins-pulseaudio bluez xfce4-terminal
+        sudo xbps-install pulseaudio pulseaudio-utils pulsemixer alsa-plugins-pulseaudio bluez xfce4-terminal fish
 
         echo "Install LibreOffice:"
         #sudo xbps-install libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-draw libreoffice-math libreoffice-base libreoffice-gnome libreoffice-i18n-pt-BR
